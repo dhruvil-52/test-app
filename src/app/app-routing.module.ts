@@ -5,52 +5,53 @@ import { TwoComponent } from './two/two.component';
 
 const routes: Routes = [
   {
+    path: 'home',
+    redirectTo: '',
+    pathMatch: 'full'
+  },
+  {
     path: '',
     component: TwoComponent,
     data: {
       breadcrumb: 'home',
     },
+  },
+  {
+    path: 'property',
+    component: TwoComponent,
+    data: {
+      breadcrumb: 'property'
+    },
+  },
+  {
+    path: 'details',
+    data: {
+      breadcrumb: 'details'
+    },
     children: [
       {
-        path: 'property',
+        path: '',
         component: TwoComponent,
         data: {
-          breadcrumb: 'property'
-        },
-        children: [
-          {
-            path: 'details',
-            data: {
-              breadcrumb: 'property details'
-            },
-            children: [
-              {
-                path: '',
-                component: TwoComponent,
-                data: {
-                  breadcrumb: ''
-                }
-              },
-              {
-                path: 'New',
-                component: TwoComponent,
-                data: {
-                  breadcrumb: 'New'
-                }
-              },
-              {
-                path: ':id',
-                component: TwoComponent,
-                data: {
-                  breadcrumb: 'id'
-                }
-              }
-            ]
-          },
-        ]
+          breadcrumb: ''
+        }
+      },
+      {
+        path: 'new',
+        component: TwoComponent,
+        data: {
+          breadcrumb: 'new'
+        }
+      },
+      {
+        path: ':id',
+        component: TwoComponent,
+        data: {
+          breadcrumb: 'id'
+        }
       }
     ]
-  }
+  },
 ];
 
 @NgModule({
